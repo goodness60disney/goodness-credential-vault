@@ -22,7 +22,11 @@ credentials;
     }
 
     modifier onlyOwner() {
-          require(msg.sender == owner, "Not the contract owner");
+          require(msg.sender == owner, "Not the 
+contract owner");
           _;
+    mapping(address => bool) public authorizedIssuers;
+function addIssuer(address _issuer) public onlyOwner {
+    authorizedIssuers[_issuer] = true;
     }
 } 
