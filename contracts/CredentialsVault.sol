@@ -13,4 +13,6 @@ struct Credential {
     mapping(uint256 => Credential) public 
 credentials; 
 
+    uint256 public credentialCount;
+
 } 
