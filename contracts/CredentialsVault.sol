@@ -83,5 +83,13 @@ _credentialId)
       );
  
     }
+function revokeCredential(uint256 _credentialId) public {
+    require(
+        credentials[_credentialId].issuer == msg.sender,
+        "Only the issuer can revoke"
+    );
+
+    credentials[_credentialId].revoked = true;
+   }
 } 
 
