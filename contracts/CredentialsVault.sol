@@ -29,4 +29,24 @@ contract owner");
 function addIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = true;
     }
+
+function issueCredential(
+    address _student,
+    string memory _program,
+    bytes32 _credentialHash
+) public {
+    require(authorizedIssuers[msg.sender], "Not an authorized issuer");
+
+    credentialCount++;
+
+    credentials[credentialCount] = Credential({
+        student: _student,
+        program: _program,
+        issuer: msg.sender,
+        issuedAt: block.timestamp,
+        credentialHash: _credentialHash,
+        revoked: false
+    });
+}
 } 
+
