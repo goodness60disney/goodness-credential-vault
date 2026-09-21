@@ -30,6 +30,12 @@ function addIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = true;
     }
 
+event CredentialIssued(
+    uint256 indexed credentialId,
+    address indexed student,
+    address indexed issuer
+);
+
 function issueCredential(
     address _student,
     string memory _program,
@@ -47,6 +53,8 @@ function issueCredential(
         credentialHash: _credentialHash,
         revoked: false
     });
-}
+
+    emit CredentialIssued(credentialCount,
+_student, msg.sender);
 } 
 
