@@ -91,5 +91,30 @@ function revokeCredential(uint256 _credentialId) public {
 
     credentials[_credentialId].revoked = true;
    }
+function getStudentCredentials(address _student)
+    public
+    view
+    returns (uint256[] memory)
+{
+    uint256 count = 0;
+
+    for (uint256 i = 1; i <= credentialCount; i++) {
+        if (credentials[i].student == _student) {
+            count++;
+        }
+    }
+
+    uint256[] memory studentCredentials = new uint256[](count);
+    uint256 index = 0;
+
+    for (uint256 i = 1; i <= credentialCount; i++) {
+        if (credentials[i].student == _student) {
+            studentCredentials[index] = i;
+            index++;
+        }
+    }
+
+    return studentCredentials;
+}
 } 
 
