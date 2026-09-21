@@ -9,5 +9,8 @@ struct Credential {
      uint256 issuedAt;
      bytes32 credentialHash;
      bool revoked;
-    }
+    } 
+    mapping(uint256 => Credential) public 
+credentials; 
+
 } 
