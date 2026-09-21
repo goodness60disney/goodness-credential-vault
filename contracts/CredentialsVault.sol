@@ -15,4 +15,10 @@ credentials;
 
     uint256 public credentialCount;
 
+    address public owner;
+
+    constructor()  {
+          owner = msg.sender;
+    }
+
 } 
