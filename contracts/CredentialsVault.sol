@@ -56,5 +56,32 @@ function issueCredential(
 
     emit CredentialIssued(credentialCount,
 _student, msg.sender);
+    }
+
+    function verifyCredential(uint256 
+_credentialId)
+    public
+    view
+    returns (
+        address student,
+        string memory program,
+        address issuer,
+        uint256 issuedAt,
+        bytes32 credentialHash,
+        bool revoked
+    )
+{
+    Credential memory credential = credentials[_credentialId];
+
+    return (
+        credential.student,
+        credential.program,
+        credential.issuer,
+        credential.issuedAt,
+        credential.credentialHash,
+        credential.revoked
+      );
+ 
+    }
 } 
 
