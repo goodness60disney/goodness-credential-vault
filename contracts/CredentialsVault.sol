@@ -89,9 +89,14 @@ _credentialId)
     }
 function revokeCredential(uint256 _credentialId) public {
     require(
+    _credentialId > 0 && _credentialId <= credentialCount,
+    "Invalid credential ID"
+      );
+    
+    require(
         credentials[_credentialId].issuer == msg.sender,
         "Only the issuer can revoke"
-    );
+      );
 
     credentials[_credentialId].revoked = true;
    }
