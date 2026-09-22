@@ -115,6 +115,6 @@ function getStudentCredentials(address _student)
     }
 
     return studentCredentials;
-}
+    }
 } 
 
