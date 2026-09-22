@@ -74,6 +74,7 @@ _credentialId)
         bool revoked
     )
 {
+    require(_credentialId > 0 && _credentialId <= credentialCount, "Invalid credential ID");
     Credential memory credential = credentials[_credentialId];
 
     return (
@@ -84,7 +85,7 @@ _credentialId)
         credential.credentialHash,
         credential.revoked
       );
- 
+
     }
 function revokeCredential(uint256 _credentialId) public {
     require(
