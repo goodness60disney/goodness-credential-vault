@@ -29,6 +29,10 @@ function addIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = true;
     }
 
+    function removeIssuer(address _issuer) public onlyOwner {
+    authorizedIssuers[_issuer] = false;
+    }
+
 event CredentialIssued(
     uint256 indexed credentialId,
     address indexed student,
