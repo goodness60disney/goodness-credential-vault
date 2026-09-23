@@ -184,8 +184,35 @@ function getStudentCredentials(address _student)
 
     return count;
 }
+    function getTotalCredentials() public view returns(uint256) {return credentialCount;
+    }
 
-function credentialExists(uint256 _credentialId)
+function getCredentialIssuer(uint256 _credentialId)
+    public
+    view
+    returns (address)
+
+    function isCredentialRevoked(uint256 _credentialId)
+    public
+    view
+    returns (bool)
+{
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID"
+    );
+
+    return credentials[_credentialId].revoked;
+}
+{
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID"
+    );
+
+    return credentials[_credentialId].issuer;
+}
+    function credentialExists(uint256 _credentialId)
     public
     view
     returns (bool)
