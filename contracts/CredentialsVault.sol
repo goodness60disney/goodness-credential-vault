@@ -25,12 +25,19 @@ credentials;
           require(msg.sender == owner, "Not the contract owner"); _;
     }      
     mapping(address => bool) public authorizedIssuers;
+
+    event IssuerAdded(address indexed issuer);
+    event IssuerRemoved(address indexed issuer);
+
 function addIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = true;
+    emit IssuerAdded(_issuer);
+
     }
 
     function removeIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = false;
+    emit IssuerRemoved(_issuer);
     }
 
 event CredentialIssued(
@@ -126,4 +133,3 @@ function getStudentCredentials(address _student)
     return studentCredentials;
     }
 } 
-
