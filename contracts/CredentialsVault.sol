@@ -54,6 +54,7 @@ function issueCredential(
     bytes32 _credentialHash
 ) public {
     require(_student != address(0), "Invalid student address"); 
+    require(bytes(_program).length > 0,"program name required"); 
     require(authorizedIssuers[msg.sender], "Not an authorized issuer");
 
     credentialCount++;
