@@ -168,4 +168,28 @@ function getStudentCredentials(address _student)
 
     return studentCredentials;
     }
+
+    function getCredentialCountForStudent(address _student)
+    public
+    view
+    returns (uint256)
+{
+    uint256 count = 0;
+
+    for (uint256 i = 1; i <= credentialCount; i++) {
+        if (credentials[i].student == _student) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function credentialExists(uint256 _credentialId)
+    public
+    view
+    returns (bool)
+{
+    return _credentialId > 0 && _credentialId <= credentialCount;
+}
 } 
