@@ -30,6 +30,7 @@ credentials;
     event IssuerRemoved(address indexed issuer);
 
 function addIssuer(address _issuer) public onlyOwner {
+    require(!authorizedIssuers[_issuer], "Issuer already authorized");
     authorizedIssuers[_issuer] = true;
     emit IssuerAdded(_issuer);
 
