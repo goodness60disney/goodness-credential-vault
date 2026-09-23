@@ -41,6 +41,8 @@ function addIssuer(address _issuer) public onlyOwner {
     authorizedIssuers[_issuer] = false;
     emit IssuerRemoved(_issuer);
     }
+    function isIssuer(address _issuer) public view returns (bool) {return authorizedIssuers[_issuer]; 
+    }
 
 event CredentialIssued(
     uint256 indexed credentialId,
@@ -55,6 +57,7 @@ function issueCredential(
 ) public {
     require(_student != address(0), "Invalid student address"); 
     require(bytes(_program).length > 0,"program name required"); 
+    require(_credentialHash != bytes32(0), "Invalid credential hash");
     require(authorizedIssuers[msg.sender], "Not an authorized issuer");
 
     credentialCount++;
@@ -98,6 +101,35 @@ _credentialId)
       );
 
     }
+
+ function getCredential(uint256 _credentialId)
+    public
+    view
+    returns (
+        address student,
+        string memory program,
+        address issuer,
+        uint256 issuedAt,
+        bytes32 credentialHash,
+        bool revoked
+    )
+{
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID"
+    );
+
+    Credential memory credential = credentials[_credentialId];
+
+    return (
+        credential.student,
+        credential.program,
+        credential.issuer,
+        credential.issuedAt,
+        credential.credentialHash,
+        credential.revoked
+    );
+}
 function revokeCredential(uint256 _credentialId) public {
     require(
     _credentialId > 0 && _credentialId <= credentialCount,
