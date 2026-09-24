@@ -25,5 +25,12 @@ TECHNOLOGIES USED
 SMART CONTRACT
 Contract Name: CredentialVault
 Compiler Version: 0.8.30
+
+DEPLOYED CONTRACTS 
+Contract Address:
+0xeb5ABB9E4Ce0685cDE6145323B1cdEaB98d937C6
+
+ETHERSCAN
+
 Network: Ethereum Sepolia Testnet
 
