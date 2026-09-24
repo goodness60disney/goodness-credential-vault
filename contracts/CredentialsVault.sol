@@ -185,26 +185,13 @@ function getStudentCredentials(address _student)
     return count;
 }
     function getTotalCredentials() public view returns(uint256) {return credentialCount;
-    }
 
+    } 
 function getCredentialIssuer(uint256 _credentialId)
     public
     view
-    returns (address)
-
-    function isCredentialRevoked(uint256 _credentialId)
-    public
-    view
-    returns (bool)
-{
-    require(
-        _credentialId > 0 && _credentialId <= credentialCount,
-        "Invalid credential ID"
-    );
-
-    return credentials[_credentialId].revoked;
-}
-{
+    returns (address) 
+    {
     require(
         _credentialId > 0 && _credentialId <= credentialCount,
         "Invalid credential ID"
@@ -212,6 +199,45 @@ function getCredentialIssuer(uint256 _credentialId)
 
     return credentials[_credentialId].issuer;
 }
+
+    function isCredentialRevoked(uint256 _credentialId)
+    public
+    view
+    returns (bool) 
+{
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID"
+    );
+
+    return credentials[_credentialId].revoked;
+} 
+
+function getCredentialStudent(uint256 _credentialId)
+    public
+    view
+    returns (address)
+{
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID"
+    );
+
+    return credentials[_credentialId].student;
+} 
+
+function getCredentialProgram(uint256 _credentialId)
+public 
+view 
+returns (string memory)
+{ 
+    require(
+        _credentialId > 0 && _credentialId <= credentialCount,
+        "Invalid credential ID" 
+    );
+     return credentials[_credentialId].program;
+}
+   
     function credentialExists(uint256 _credentialId)
     public
     view
