@@ -35,6 +35,11 @@ goodness-credential-vault/
 | CredentialVault.sol
 |___ README.md
 
+Contract address:
+0xd7D3833c0c077a7527F8F143Ca7AdB38956b467C
+
+Ethersan link:
+https://sepolia.etherscan.io/address/0xd7D3833c0c077a7527F8F143Ca7AdB38956b467C#code
 
 Verification
 The deployed contract source code was successfully verified on Sepolia Etherscan, with matching bytecode and ABI.
