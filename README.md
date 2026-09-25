@@ -22,15 +22,35 @@ TECHNOLOGIES USED
 -Etherscan
 -GitHub
 
+Compiler Ver**sion: 0.8.30
+
 SMART CONTRACT
 Contract Name: CredentialVault
-Compiler Version: 0.8.30
 
-DEPLOYED CONTRACTS 
-Contract Address:
-0xeb5ABB9E4Ce0685cDE6145323B1cdEaB98d937C6
+PROJECT STRUCTURE
+'''text
 
-ETHERSCAN
+goodness-credential-vault/
+|- contracts
+| CredentialVault.sol
+|___ README.md
 
-Network: Ethereum Sepolia Testnet
 
+Verification
+The deployed contract source code was successfully verified on Sepolia Etherscan, with matching bytecode and ABI.
+
+**AUTHOR**               
+Onyekachi Goodness Soromtochukwu
+
+after undergoing this wonderful training from TECHCRUSH that challenged me out of my comfort zone, I now have this project of mine to boast of, all thanks to GOD who made me come across this scholarship. GOD bless TECHCRUSH,GOD bless the management and GOD bless m wonderful Tutor, who had so much patience while teaching. 
+
+
+
+
+
+
+
+                                      **THANK YOU**
+**
+
+  
